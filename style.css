@@ -1,14 +1,14 @@
 :root {
   /* for some global variables */
+  --background-color-primary: #fff;
   --font-color-primary: #fff;
+  --font-color-alt: rgba(219, 186, 0, 1);
 
   --button-color-primary: #fff;
-  --button__hover-color-primary: hsla(32, 100%, 67%, 0.64);
-
   --button__border-color-primary: #fff;
   --button__hover-color-primary: #000;
 
-  --background-color-primary: #fff;
+  --nav-bar-color: rgba(17, 13, 13, 0.95);
 }
 
 * {
@@ -74,6 +74,10 @@
   position: relative;
   /* higer z-index = more to screen */
   /* less = reduce priority */
+
+  /* Z Index ( z-index ) is a CSS property that defines the order of overlapping HTML elements.
+  ONLY WORKS FOR POSITIONED ELEMENTS (ABSOLUTE, RELATIVE, FIXED)
+  */
   z-index: 1;
   /* # take property and time  */
   /* Specifies the name or names of the CSS properties to which transitions should
@@ -109,4 +113,182 @@
 /* if the anchor tag inside the banner-btn class gets hover apply style to span which is inside in all of them  */
 .banner-btn a:hover span {
   width: 100%;
+}
+
+#sideNav {
+  /* incease widht of side nav - side nav lays on top of banner */
+  width: 250px;
+  /* like 100% of the viewport? */
+  height: 100vh;
+  /* it will scroll with */
+  position: fixed;
+  /* The right property affects the horizontal position of a positioned element. This property has no effect on non-positioned elements.
+   If position: absolute; or position: fixed; - the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor. */
+
+  /* initally hidden */
+  right: -250px;
+  top: 0;
+  background-color: var(--nav-bar-color);
+  z-index: 2;
+  /* if something happens related to #sideNav (when a style changes) */
+  transition: 0.5s;
+}
+
+nav ul li {
+  /* no dots */
+  list-style: none;
+  /* expand */
+  margin: 50px 20px;
+  /* padding = it pushes itself away */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+#menuBtn {
+  width: 50px;
+  height: 50px;
+  /* https://www.w3schools.com/css/css_image_transparency.asp */
+  background: transparent;
+  text-align: center;
+  position: fixed;
+  right: 30px;
+  top: 20px;
+  border-radius: 3px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+#menuBtn img {
+  width: 25px;
+  height: auto;
+  margin-top: 15px;
+}
+
+/* for smaller screens/ viewports */
+/* The viewport is the user's visible area of a web page. 
+The viewport varies with the device, and will be smaller on
+ a mobile phone than on a computer screen. */
+@media screen and (max-width: 770px) {
+  .banner-text h1 {
+    font-size: 44px;
+  }
+
+  .banner-btn a {
+    display: block;
+    /* // center */
+    margin: 20px auto;
+  }
+}
+
+/* -------------------------- feature -----------------------  */
+#feature {
+  width: 100%;
+  padding: 70px 0;
+}
+
+.title-text {
+  /* The text-align property 
+  in CSS is used for aligning the inner content of a block element */
+  text-align: center;
+  padding-bottom: 70px;
+}
+
+.title-text p {
+  margin: auto;
+  font-size: 20px;
+  color: var(--font-color-alt);
+  font-weight: bold;
+  /* margin are automatically set by the browser based on the container, to make element centered */
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+/* Insert something after the content of each <p> element */
+.title-text p::after {
+  /* Die content CSS Eigenschaft wird mit ::before } anonymous not in DOM 
+   und ::after Pseudo-elementen genutzt um Inhalte in einen Element zu generieren */
+  content: "";
+  width: 50px;
+  height: 35px;
+
+  /* There is no difference. Both will work in the same way.
+ CSS background properties are used to define the background effects of an element. */
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.5),
+    hsla(50, 91%, 50%, 0.747)
+  );
+  position: absolute;
+  /* from top left corner the gradient */
+  /* gradient from top */
+  top: -22;
+  left: 0;
+  z-index: -1;
+  rotate: (10deg);
+
+  /* # like a leaf */
+  border-top-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+}
+
+.title-text h1 {
+  font-size: 50px;
+}
+
+/* container */
+.feature-box {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  /* The CSS flex-wrap property is used to specify whether flex items are
+   forced into a single line or wrapped onto multiple lines */
+  flex-wrap: wrap;
+
+  /* The align-items property specifies the default alignment for items inside the flexible container. */
+  /* https://www.w3schools.com/cssref/playdemo.asp?filename=playcss_align-items&preval=baseline */
+  align-items: center;
+  text-align: center;
+}
+
+.features {
+  /* The flex-basis property is a sub-property of the Flexible Box Layout module. 
+  It specifies the initial size of the flex item, before any available space is distributed according to the flex factors. When omitted from the flex shorthand, its specified value is the length zero. */
+
+  /* // like the width */
+  flex-basis: 50%;
+}
+
+.features-img {
+  flex-basis: 50%;
+  margin: auto;
+}
+
+.features-img img {
+  width: 70%;
+  border-radius: 10px;
+}
+
+.features h1 {
+  text-align: left;
+  margin-bottom: 10px;
+  font-weight: 100;
+  color: var(--font-color-alt);
+}
+
+.features-description {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.features-icon {
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  line-height: 50px;
+  border-radius: 8px;
+  color: var(--font-color-primary);
 }
