@@ -29,7 +29,7 @@ html {
   /* background image + linear gradient . --> do linear gradient before background image */
   /* last num of hsla = opacity (deckkraft) */
   background: linear-gradient(rgba(0, 0, 0, 0.5), hsla(50, 91%, 50%, 0.61)),
-    url(public/Barber_Shop_img/banner.jpg);
+    url("../Barber_Shop_img/banner.jpg");
   /* The linear-gradient() CSS function creates an image consisting of a progressive transition between two or more colors along a straight line. */
   /* side-or-corner (to left[270]/to right[360]) (to top[0deg] /to bottom [180]) --> default to bottom */
   /* linear-color-stop (color stop --> percentage or length along gradients axis) */
@@ -303,7 +303,7 @@ The viewport varies with the device, and will be smaller on
 }
 
 .features-text p {
-  padding: 0 2px;
+  padding: 0 20px;
   text-align: initial;
 }
 
