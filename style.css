@@ -1,0 +1,112 @@
+:root {
+  /* for some global variables */
+  --font-color-primary: #fff;
+
+  --button-color-primary: #fff;
+  --button__hover-color-primary: hsla(32, 100%, 67%, 0.64);
+
+  --button__border-color-primary: #fff;
+  --button__hover-color-primary: #000;
+
+  --background-color-primary: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+#banner {
+  /* background image + linear gradient . --> do linear gradient before background image */
+  /* last num of hsla = opacity (deckkraft) */
+  background: linear-gradient(rgba(0, 0, 0, 0.5), hsla(50, 91%, 50%, 0.61)),
+    url(public/Barber_Shop_img/banner.jpg);
+  /* The linear-gradient() CSS function creates an image consisting of a progressive transition between two or more colors along a straight line. */
+  /* side-or-corner (to left[270]/to right[360]) (to top[0deg] /to bottom [180]) --> default to bottom */
+  /* linear-color-stop (color stop --> percentage or length along gradients axis) */
+  background-size: cover;
+  background-position: center;
+  /* vh stands for viewport height and vw is for viewport width */
+  height: 100vh;
+}
+
+.logo {
+  width: 140px;
+  /* is positioned relative to the nearest positioned ancestor 
+  (instead of positioned relative to the viewport, like fixed) */
+  position: absolute;
+  top: 4%;
+  left: 10%;
+}
+
+.banner-text {
+  text-align: center;
+  color: var(--font-color-primary);
+  padding-top: 180px;
+}
+
+.banner-text h1 {
+  font-size: 130px;
+  font-family: "Kaushan Script", cursive;
+}
+
+.banner-text p {
+  font-size: 20px;
+  font-style: italic;
+}
+
+.banner-btn {
+  /* it pushes itself from the banner text */
+  margin: 70px auto 0;
+}
+
+.banner-btn a {
+  width: 150px;
+  text-decoration: none;
+  /* The element itself is formatted as an inline element, but it can apply height and width values.
+   It is placed as an inline element (on the same line as adjacent content). */
+  display: inline-block;
+  margin: 0 10px;
+  padding: 12px 0;
+  color: var(--font-color-primary);
+  border: 0.5px solid var(--button__border-color-primary);
+  position: relative;
+  /* higer z-index = more to screen */
+  /* less = reduce priority */
+  z-index: 1;
+  /* # take property and time  */
+  /* Specifies the name or names of the CSS properties to which transitions should
+   be applied. Only properties listed here are animated during transitions;
+    changes to all other properties occur instantaneously as usual. */
+  transition: color 0.5s;
+}
+
+.banner-btn a:hover {
+  /* # it will change color of text after .5s (when button gets filled with span width) */
+  color: var(--button__hover-color-primary);
+}
+
+/* make half of button white */
+.banner-btn a span {
+  width: 0;
+  height: 100%;
+  /* relative to anchor tag */
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--background-color-primary);
+
+  /* it will stay behind the text which is on z-index 1 */
+  z-index: -1;
+  /* CSS transitions provide a way to control animation speed when changing CSS properties
+  from .banner-btn a span to .banner-btn a:hover span 
+  */
+  /* --> it fills button slowly */
+  transition: 0.5s;
+}
+
+/* if the anchor tag inside the banner-btn class gets hover apply style to span which is inside in all of them  */
+.banner-btn a:hover span {
+  width: 100%;
+}
